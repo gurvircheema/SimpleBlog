@@ -1,0 +1,27 @@
+<div class="row">	
+	
+	<div class="span2">
+		<div class="nav pull-left">
+			<ul class="nav-pills list-unstyled">
+				<li><%= link_to "New Post", new_posting_path %></li>
+				<li><%= link_to "Edit post", "#" %></li>
+				<li><%= link_to "Delete", "#" %></li>
+			<ul>
+		</div>
+		<img src="#" class="img-rounded" height=120, width=120>
+	</div>
+	
+	<div class="span8">
+		<h3>Postings </h3>
+		<hr>
+		<% @postings.each do |post|%>
+		<ul>
+			<li><%= link_to post.blogpost, post %></li>
+		</ul>
+		<% end %>
+	</div>
+	
+</div>
+
+
+

@@ -1,0 +1,35 @@
+
+<div class="row">
+	<div class="span2">
+		<div class="nav pull-left">
+			<ul class="nav-pills list-unstyled">
+				<li><%= link_to "New Post", new_posting_path %></li>
+				<li><%= link_to "Edit post", edit_posting_path(@posting) %></li>
+				<li><%= link_to "Delete", posting_path, confirm: "Are you sure?", method: :delete%></li>
+			<ul>
+		</div>
+	</div>
+	<div class="span8">
+		<p id="notice"><%= notice %></p>
+		<h3>Author: <%= @posting.name %></h3>
+		<div class="lead">
+			<%= @posting.blogpost %>
+		</div>
+		<small><em><p>Blogpost created on: <%= @posting.created_at.strftime("%d %b. %Y") %></p></em></small>
+	
+		<hr>
+	
+		<h5> Comments</h5>
+		<div id="comments">
+			<%= render :partial => @posting.comments %>
+		</div>
+	
+		<%= form_for [@posting, Comment.new] do |f| %>
+		        <p>
+		                <%= f.label :body, "New comment" %><br/>
+		                <%= f.text_area :body %>
+		        </p>
+		        <p><%= f.submit "Add comment" %></p>
+		<% end %>
+	</div>
+</div>

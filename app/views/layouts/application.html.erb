@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<%= link_to "Blog Home",postings_path, id: "logo" %>
+				<nav>
+					<ul class="nav pull-right">
+						<li> <%= link_to "Home", postings_path%></li>
+						<li> <%= link_to "Sign in", "#"%></li>
+						<li> <%= link_to "Sign Up", "#"%></li>
+						
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="center hero-unit">
+	        <% flash.each do |key,value| %>
+	          <div class="alert alert-<%= key%>"><%= value %></div>
+	        <% end %>
+			<%= yield %>
+		</div>
+	</div>
+	<footer>
+		<small>
+			<ul class="list-unstyled">
+				<li>Copyrights</li>
+				<li>Author</li>
+				<li>Other blogs</li>
+			</ul>
+			
+			<p class= "footertext">
+					Designed by Gurvir Cheema in 2014
+			</p>
+			</small>
+	</footer>
+</body>
+</html>

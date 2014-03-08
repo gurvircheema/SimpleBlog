@@ -1,0 +1,15 @@
+<h3>Edit this posting</h3>
+<hr>
+<div class ="row">
+	<div class="span6 offset0">
+		<%= form_for(@posting) do |f| %>
+		
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+			<%= f.label :blogpost %>
+			<%= f.text_area :blogpost %>
+	
+			<%= f.submit "Update Post", class:"btn btn-primary"%>
+		<% end %>
+	</div>
+</div>
